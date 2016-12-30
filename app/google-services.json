@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "594238322546",
+    "firebase_url": "https://masterkey-3489d.firebaseio.com",
+    "project_id": "masterkey-3489d",
+    "storage_bucket": "masterkey-3489d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594238322546:android:83ecd5c62851c455",
+        "android_client_info": {
+          "package_name": "com.example.bhavesh.masterkey"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594238322546-elcc92kjhbnfgc76gem1brtc43e170hg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb0APQuDV1Q8NyzlR4niJ3bmBRyFdtXpY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
