@@ -175,7 +175,7 @@ public class AddAccount extends AppCompatActivity {
             firebaseAuth.signOut();
             finish();
             //starting login activity
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            startActivity(new Intent(getApplicationContext(), Records.class));
         }
     }
 
