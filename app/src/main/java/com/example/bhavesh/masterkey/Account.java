@@ -15,6 +15,13 @@ public class Account {
 
     }
 
+    public Account(String username, String password, String email, String vendorname) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.vendorname = vendorname;
+    }
+
     public String getUsername() {
         return username;
     }

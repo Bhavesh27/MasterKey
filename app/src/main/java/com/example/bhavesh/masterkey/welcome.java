@@ -22,7 +22,7 @@ public class welcome extends AppCompatActivity {
 
     TextView welcomeMsg;
     EditText firstname,lastname,mobile;
-    Button addAccount,logout;
+    Button addAccount;
 
     //ProgressDialog progressDialog;
 
@@ -36,6 +36,15 @@ public class welcome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        //getting current user
+        //FirebaseUser user = firebaseAuth.getCurrentUser();
+       /* if(user.getUid().contains("firstname")){
+            //closing activity
+            finish();
+            //starting login activity
+            startActivity(new Intent(getApplicationContext(), AddAccount.class));
+        }*/
 
         //getting the database reference
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -51,26 +60,24 @@ public class welcome extends AppCompatActivity {
 
         //if the user is not logged in
         //that means current user will return null
-        if(firebaseAuth.getCurrentUser() == null){
+        /*if(firebaseAuth.getCurrentUser() == null){
             //closing this activity
             finish();
             //starting login activity
             startActivity(new Intent(this, MainActivity.class));
-        }
+        }*/
 
-        //getting current user
-        FirebaseUser user = firebaseAuth.getCurrentUser();
 
         welcomeMsg = (TextView)findViewById(R.id.textView);
 
         addAccount = (Button)findViewById(R.id.button4);
-        logout = (Button)findViewById(R.id.button5);
+        //logout = (Button)findViewById(R.id.button5);
 
         /*Intent intent = getIntent();
         final Bundle bundle = intent.getExtras();
         String name = bundle.getString("name");*/
 
-        welcomeMsg.setText("Welcome !! You have Registered Sucessfully\n\n Please tell us something more about yourself\n");
+        //welcomeMsg.setText("");
 
         addAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +93,7 @@ public class welcome extends AppCompatActivity {
             }
         });
 
-        logout.setOnClickListener(new View.OnClickListener() {
+        /*logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //logging out the user
@@ -97,7 +104,7 @@ public class welcome extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
             }
-        });
+        });*/
     }
 
     private void saveUserInformation() {
@@ -117,30 +124,35 @@ public class welcome extends AppCompatActivity {
         }
 
         if(TextUtils.isEmpty(mobile.getText().toString().trim())){
-            Toast.makeText(this,"Please Enter Mobile No",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Please Enter Mobile No",Toast.LENGTH_LONG).show();
             return;
         }
 
         //creating a userinformation object
         User userInformation = new User(fname,lname,mobileno);
 
-        //getting the current logged in user
-        FirebaseUser user = firebaseAuth.getCurrentUser();
+        try {
 
-        //saving data to firebase database
+            //getting the current logged in user
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+
+            //saving data to firebase database
         /*
         * first we are creating a new child in firebase with the
         * unique id of logged in user
         * and then for that user under the unique id we are saving data
         * for saving data we are using setvalue method this method takes a normal java object
         * */
-        databaseReference.child(user.getUid()).setValue(userInformation);
+            databaseReference.child(user.getUid()).setValue(userInformation);
 
-        //displaying a success toast
-        Toast.makeText(this, "Details Saved...", Toast.LENGTH_LONG).show();
+            //displaying a success toast
+            Toast.makeText(getApplicationContext(), "Details Saved...", Toast.LENGTH_LONG).show();
 
-        /*Intent intent = new Intent(welcome.this,AddAccount.class);
-        startActivity(intent);*/
+            Intent intent = new Intent(welcome.this, AddAccount.class);
+            startActivity(intent);
+        }
+        catch(NullPointerException n){
 
+        }
     }
 }

@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             //close this activity
             finish();
             //opening profile activity
-            startActivity(new Intent(getApplicationContext(), welcome.class));
+            startActivity(new Intent(MainActivity.this, AddAccount.class));
         }
 
         progressDialog = new ProgressDialog(this);
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             //start the profile activity
                             finish();
-                            startActivity(new Intent(getApplicationContext(), welcome.class));
+                            startActivity(new Intent(MainActivity.this, AddAccount.class));
                         }
                     }
                 });

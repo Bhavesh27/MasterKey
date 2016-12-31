@@ -48,14 +48,14 @@ public class Registration extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         //if getCurrentUser does not returns null
-        if(firebaseAuth.getCurrentUser() != null){
+        /*if(firebaseAuth.getCurrentUser() != null){
             //that means user is already logged in
             //so close this activity
             finish();
 
             //and open profile activity
             startActivity(new Intent(getApplicationContext(), welcome.class));
-        }
+        }*/
 
         createAcc = (Button)findViewById(R.id.button3);
         createAcc.setOnClickListener(new View.OnClickListener() {
@@ -132,7 +132,7 @@ public class Registration extends AppCompatActivity {
                             //checking if success
                             if (task.isSuccessful()) {
                                 finish();
-                                startActivity(new Intent(getApplicationContext(), welcome.class));
+                                startActivity(new Intent(Registration.this, welcome.class));
                             } else {
                                 //display some message here
                                 Toast.makeText(Registration.this, "Registration Error", Toast.LENGTH_LONG).show();

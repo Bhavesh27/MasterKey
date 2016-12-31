@@ -11,52 +11,23 @@
     tools:context="com.example.bhavesh.masterkey.welcome">
 
     <TextView
-        android:text="TextView"
+        android:text="@string/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView" />
+        android:id="@+id/textView"
+        android:textAppearance="@android:style/TextAppearance.Holo.Large" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_above="@+id/button4"
-        android:layout_alignEnd="@+id/button5"
-        android:layout_marginBottom="111dp"
         android:id="@+id/editText3"
-        android:hint="Enter First Name" />
-
-    <Button
-        android:text="Logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button5"
-        android:layout_alignBaseline="@+id/button4"
-        android:layout_alignBottom="@+id/button4"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginStart="40dp" />
-
-    <Button
-        android:text="Save Details"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button4"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/editText12"
-        android:layout_alignStart="@+id/editText12" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/editText5"
-        android:hint="Enter Last Name"
-        android:layout_marginTop="171dp"
+        android:hint="@string/enter_first_name"
         android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/editText3" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -64,8 +35,26 @@
         android:inputType="phone"
         android:ems="10"
         android:id="@+id/editText12"
-        android:hint="Enter Mobile No"
-        android:layout_marginTop="14dp"
+        android:hint="@string/enter_mobile_no"
         android:layout_below="@+id/editText5"
         android:layout_alignStart="@+id/editText5" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText5"
+        android:hint="@string/enter_last_name"
+        android:layout_below="@+id/editText3"
+        android:layout_alignStart="@+id/editText3" />
+
+    <Button
+        android:text="@string/save_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4"
+        android:layout_below="@+id/editText12"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="51dp" />
 </RelativeLayout>

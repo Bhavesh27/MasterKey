@@ -15,4 +15,9 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="create_account">Create Account</string>
     <string name="user_registration">User Registration</string>
+    <string name="welcome">Welcome !! You have Registered Sucessfully \n\nPlease tell us something more about yourself</string>
+    <string name="enter_first_name">Enter First Name</string>
+    <string name="enter_last_name">Enter Last Name</string>
+    <string name="enter_mobile_no">Enter Mobile No</string>
+    <string name="save_details">Save Details</string>
 </resources>
