@@ -164,6 +164,11 @@ public class MainActivity extends AppCompatActivity {
                             finish();
                             startActivity(new Intent(MainActivity.this, AddAccount.class));
                         }
+                        else{
+                            Toast.makeText(MainActivity.this,"You Have entered wrong Credantials",Toast.LENGTH_LONG).show();
+                            emailbox.setText("");
+                            passbox.setText("");
+                        }
                     }
                 });
 

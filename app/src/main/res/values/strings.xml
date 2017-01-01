@@ -20,4 +20,5 @@
     <string name="enter_last_name">Enter Last Name</string>
     <string name="enter_mobile_no">Enter Mobile No</string>
     <string name="save_details">Save Details</string>
+    <string name="view_records">View Records</string>
 </resources>

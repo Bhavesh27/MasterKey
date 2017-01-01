@@ -22,9 +22,9 @@ import java.util.List;
 public class AddAccount extends AppCompatActivity {
 
     EditText username,email,password,vendorname;
-    Button save,logout;
+    Button save,logout,view;
     Account account;
-    List<Account> accounts = new ArrayList<>();
+    //List<Account> accounts = new ArrayList<>();
     //User user;
 
     AlertDialog.Builder adb;
@@ -60,6 +60,19 @@ public class AddAccount extends AppCompatActivity {
         email = (EditText)findViewById(R.id.editText9);
         password = (EditText)findViewById(R.id.editText10);
         vendorname = (EditText)findViewById(R.id.editText11);
+
+        view = (Button)findViewById(R.id.button5);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //closing activity
+                finish();
+                //starting login activity
+                startActivity(new Intent(getApplicationContext(), Records.class));
+
+            }
+        });
 
         logout = (Button)findViewById(R.id.button7);
         logout.setOnClickListener(new View.OnClickListener() {
@@ -125,7 +138,7 @@ public class AddAccount extends AppCompatActivity {
         account = new Account(uname,pass,emailid,vname);
 
         //getting the current logged in user
-        //FirebaseUser user = firebaseAuth.getCurrentUser();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
 
         //saving data to firebase database
         /*
@@ -134,8 +147,8 @@ public class AddAccount extends AppCompatActivity {
         * and then for that user under the unique id we are saving data
         * for saving data we are using setvalue method this method takes a normal java object
         * */
-        //databaseReference.child(user.getUid()).setValue(account);
-        accounts.add(account);
+        databaseReference.child(user.getUid()).push().setValue(account);
+        //accounts.add(account);
 
         //displaying a success toast
         Toast.makeText(getApplicationContext(), "Account Saved...", Toast.LENGTH_LONG).show();
@@ -169,10 +182,9 @@ public class AddAccount extends AppCompatActivity {
 
         @Override
         public void onClick(DialogInterface dialog, int which) {
-            FirebaseUser user = firebaseAuth.getCurrentUser();
-            databaseReference.child(user.getUid()).push().setValue(accounts);
+
             dialog.cancel();
-            firebaseAuth.signOut();
+            //firebaseAuth.signOut();
             finish();
             //starting login activity
             startActivity(new Intent(getApplicationContext(), Records.class));
