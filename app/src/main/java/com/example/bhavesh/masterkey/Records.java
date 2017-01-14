@@ -26,13 +26,13 @@ public class Records extends ListActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
-    List<String> email = new ArrayList<>();
+    /*List<String> email = new ArrayList<>();
     List<String> uname = new ArrayList<>();
     List<String> vname = new ArrayList<>();
-    List<String> pass = new ArrayList<>();
+    List<String> pass = new ArrayList<>();*/
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) throws NullPointerException {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_records);
 
@@ -64,17 +64,17 @@ public class Records extends ListActivity {
             }
         });
 
-        for (Account acc : accounts) {
+        /*for (Account acc : accounts) {
 
             email.add(acc.getEmail());
             vname.add(acc.getVendorname());
             uname.add(acc.getUsername());
             pass.add(acc.getPassword());
 
-        }
+        }*/
 
 
-        ArrayAdapter<String> lists = new ArrayAdapter<String>(Records.this,android.R.layout.simple_list_item_1,vname);
+        ArrayAdapter<Account> lists = new ArrayAdapter<>(Records.this,android.R.layout.simple_list_item_1,accounts);
         setListAdapter(lists);
 
     }

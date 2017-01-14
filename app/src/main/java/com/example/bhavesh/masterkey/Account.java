@@ -1,21 +1,18 @@
 package com.example.bhavesh.masterkey;
 
-/**
- * Created by BHAVESH on 29/12/2016.
- */
 
-public class Account {
+class Account {
 
-    String username;
-    String password;
-    String email;
-    String vendorname;
+    private String username;
+    private String password;
+    private String email;
+    private String vendorname;
 
     public Account() {
 
     }
 
-    public Account(String username, String password, String email, String vendorname) {
+    Account(String username, String password, String email, String vendorname) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -44,6 +41,11 @@ public class Account {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Username='" + username + '\n' + "email='" + email + '\n' + "password='" + password + '\n' + "vendorname='" + vendorname + '\n';
     }
 
     public String getVendorname() {
